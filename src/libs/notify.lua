@@ -8,6 +8,18 @@
 
 -- modified a lil
 
+local csharset = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890"
+math.randomseed(os.clock())
+function randomString(length)
+	local ret = {}
+	local r
+	for i = 1, length do
+		r = math.random(1, #csharset)
+		table.insert(ret, csharset:sub(r, r))
+	end
+	return table.concat(ret)
+end
+
 local isExistance = false
 
 local Notifyt = Instance.new("ScreenGui")
@@ -35,7 +47,7 @@ if game.CoreGui:FindFirstChild("Notifyt") then
 	Notification = Notifyt.Notification
 end
 
-Notifyt.Name = "LugerNotification"
+Notifyt.Name = "LugerNotification".. randomString(3)
 Notifyt.Parent = game.CoreGui
 Notifyt.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Notifyt.ResetOnSpawn = false
