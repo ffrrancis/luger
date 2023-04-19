@@ -6,7 +6,8 @@
  * ======================================================================== *
 --]]
 
-_G.Testing = false
+_G.Testing = true
+_G.Supported = nil
 
 --[[ Important Variables ]]--
 local Library = loadstring(game:HttpGet("https://github.com"))
@@ -16,48 +17,10 @@ local Notify = loadstring(game:HttpGet("https://raw.githubusercontent.com/lugerr
 local request = (syn and syn.request) or (http and http.request) or http_request
 
 if game.PlaceId ~= 142823291 then
-    if _G.Testing == true then return end
-
-    prompt = ErrorPrompt.new("Default")
-    prompt._hideErrorCode = true
-
-    gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-    
-    prompt:setParent(gui)
-    prompt:setErrorTitle("Luger")
-    
-    blur = Instance.new("BlurEffect")
-    blur.Parent = game:GetService("Lighting")
-    blur.Size = 24
-    
-    prompt:updateButtons({{
-        Text = "Cancel",
-        Callback = function()
-            prompt:_close()
-            blur:Destroy()
-
-            return
-       end
-    },
-    {
-        Text = "Join",
-        Primary = true,
-        Callback = function()
-            prompt:_close()
-            blur:Destroy()
-        end,
-    }}, 'Default')
-
-    prompt:_open("Your current game isn't supported. Press \"Join\" to join Murder Mystery 2")
+    Notify("Luger", "Your current game isn't supported")
 end
 
 --[[ Data ]]--
-
-local TextInFile = "TweedLeak#4003"
-local Discord_Invite = "CtKnhbnJa4"
-local FolderName = "Enhanced Software"
-local Folder2 = "/Discord Invites" -- Dont Touch "/"
-local FileName = "/Enhanced Software.gg" -- Dont Touch "/"
 
 if not isfolder('/Luger') then
     makefolder('/Luger')
