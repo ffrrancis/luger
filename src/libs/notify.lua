@@ -40,14 +40,16 @@ local Content = Instance.new("TextLabel")
 local UIPadding_2 = Instance.new("UIPadding")
 local UISizeConstraint = Instance.new("UISizeConstraint")
 
-if game.CoreGui:FindFirstChild("Notifyt") then
+local notifnameeee = "LugerNotification".. randomString(3)
+
+if game.CoreGui:FindFirstChild(notifnameeee) then
 	isExistance = true
 	Notifyt = game.CoreGui.Notifyt
 	NotificationParent = Notifyt.NotificationParent
 	Notification = Notifyt.Notification
 end
 
-Notifyt.Name = "LugerNotification".. randomString(3)
+Notifyt.Name = notifnameeee
 Notifyt.Parent = game.CoreGui
 Notifyt.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Notifyt.ResetOnSpawn = false

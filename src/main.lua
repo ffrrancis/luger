@@ -17,7 +17,7 @@ local Notify = loadstring(game:HttpGet("https://raw.githubusercontent.com/lugerr
 local request = (syn and syn.request) or (http and http.request) or http_request
 
 if game.PlaceId ~= 142823291 then
-    Notify("Luger", "Your current game isn't supported")
+    Notify("Luger", "Your current game isn't supported", 2)
 end
 
 --[[ Data ]]--
@@ -71,7 +71,7 @@ if not isfile('/Luger/discord.txt') then
                 })
             else
                 -- i have no idea why i added this (what exploit doesnt have http requests??)
-                Notify("Copied to clipboard", "Your exploit doesn't support http requests, the invite has been copied to your clipboard.")
+                Notify("Copied to clipboard", "Your exploit doesn't support http requests, the invite has been copied to your clipboard.", 2)
                 setclipboard("https://discord.gg/dqUm8nBtkC")
             end
         end,
