@@ -10,15 +10,39 @@ _G.Testing = true
 _G.Supported = nil
 
 --[[ Important Variables ]]--
-local Library = loadstring(game:HttpGet("https://github.com"))
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/lugerr/main/main/src/libs/ui.lua"))
 local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
 local Notify = loadstring(game:HttpGet("https://raw.githubusercontent.com/lugerr/main/main/src/libs/notify.lua"))()
 
+if game.PlaceId ~= 142823291 then
+    if _G.Testing ~= true then
+        Notify("Luger", "Your current game isn't supported", 2)
+        return
+    end
+end
+
 local request = (syn and syn.request) or (http and http.request) or http_request
 
-if game.PlaceId ~= 142823291 then
-    Notify("Luger", "Your current game isn't supported", 2)
-end
+local Window = Library.Load({
+    Title = "Luger",
+    Style = 2,
+    SizeX = 300,
+    SizeY = 350,
+    Theme = "Dark",
+    ColorOverrides = {
+        MainFrame = Color3.fromRGB(51, 51, 51),
+        Minimise = Color3.fromRGB(255, 255, 255),
+        MinimiseAccent = Color3.fromRGB(255, 255, 255),
+		Maximise = Color3.fromRGB(255,255,255),
+		MaximiseAccent = Color3.fromRGB(255,255,255),
+        TitleBar = Color3.fromRGB(35,37,39)
+    }
+})
+
+local Home = Window.New({ Title = "HOME" })
+local Combat = Window.New({ Title = "COMBAT" })
+local Visuals = Window.New({ Title = "VISUALS" })
+local Settings = Window.New({ ImageID = 4431163567 })
 
 --[[ Data ]]--
 
